@@ -1,8 +1,10 @@
+# require "byebug"
+
 require_relative "poly_tree_node"
 
 class KnightPathFinder
 
-  attr_accessor :root_node
+  attr_accessor :root_node, :considered_positions
 
   def self.valid_moves(pos)
     valid_moves = []
@@ -28,8 +30,10 @@ class KnightPathFinder
     array << @root_node
     until array.empty?
       node = array.shift
-      new_move_positions(node.value).each_with_index do |move, i|
+      new_move_positions(node.value).each do |move|
         new_node = PolyTreeNode.new(move)
+        # debugger
+        # new_node.considered_positions += node.value
         node.add_child(new_node)
         array << new_node
       end
@@ -38,13 +42,14 @@ class KnightPathFinder
   end
 
   def new_move_positions(pos)
-    new_pos = KnightPathFinder.valid_moves(pos).select do |el|
-      !@considered_positions.include?(el)
+    new_pos = KnightPathFinder.valid_moves(pos).reject do |el|
+      @considered_positions.include?(el)
     end
     @considered_positions += new_pos
+    new_pos
   end
 
 end
 
 my_knight = KnightPathFinder.new([0, 0])
-p my_knight
+p my_knight.considered_positions.count

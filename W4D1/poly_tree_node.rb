@@ -41,7 +41,7 @@ class PolyTreeNode
   end
   
   def bfs(target_value)
-    return self if self.value == target_value
+    # return self if self.value == target_value
     array = []
     array << self
     until array.empty?
