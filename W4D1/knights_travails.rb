@@ -2,6 +2,8 @@ require_relative "poly_tree_node"
 
 class KnightPathFinder
 
+  attr_accessor :root_node
+
   def self.valid_moves(pos)
     valid_moves = []
     row, col = pos
@@ -26,8 +28,10 @@ class KnightPathFinder
     array << @root_node
     until array.empty?
       node = array.shift
-      new_move_positions(node.value).each do |move|
-        
+      new_move_positions(node.value).each_with_index do |move, i|
+        new_node = PolyTreeNode.new(move)
+        node.add_child(new_node)
+        array << new_node
       end
 
     end
@@ -42,3 +46,5 @@ class KnightPathFinder
 
 end
 
+my_knight = KnightPathFinder.new([0, 0])
+p my_knight
