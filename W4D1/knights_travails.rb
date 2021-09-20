@@ -60,7 +60,8 @@ class KnightPathFinder
       path << node.value
       node = node.parent
     end
-    path
+    path << @root_node.value
+    path.reverse
   end
 
 end
