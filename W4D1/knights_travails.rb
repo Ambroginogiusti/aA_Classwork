@@ -1,6 +1,6 @@
 # require "byebug" 
 
-require_relative "poly_tree_node"
+require_relative "poly_tree_node" 
 
 class KnightPathFinder
 
