@@ -1,4 +1,11 @@
 require_relative "piece"
+require_relative "rook"
+require_relative "bishop"
+require_relative "knight"
+require_relative "queen"
+require_relative "king"
+require_relative "pawn"
+require_relative "null_piece"
 
 class Board
 
@@ -6,6 +13,7 @@ class Board
 
   def initialize
     @grid = Array.new(8) {Array.new(8)}
+    set_pieces
   end
 
   def move_piece(start_pos, end_pos)

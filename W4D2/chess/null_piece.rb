@@ -1,4 +1,7 @@
 require_relative "piece"
 
-class King < Piece
+class NullPiece < Piece
+
+  
+
 end
