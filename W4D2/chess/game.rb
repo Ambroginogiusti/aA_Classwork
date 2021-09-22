@@ -1,15 +1,25 @@
 require_relative "board"
+require_relative "human_player"
+require_relative "player"
 
 class Game
 
-  attr_accessor :board
+  attr_accessor :board, :player_one, :player_two, :game_over, :current_player
 
-  def initialize
+  def initialize(name)
     @board = Board.new
+    @player_one = HumanPlayer.new(:W, name)
+    @player_two = Player.new(:B, "Computer")
+    @game_over = false
+    @current_player = @player_one
   end
 
   def play
-    render
+    while !game_over
+      render
+      current_move = @current_player.get_move
+      p current_move
+    end
   end
 
   def render
@@ -28,5 +38,5 @@ class Game
 
 end
 
-game = Game.new
+game = Game.new("Human")
 game.play
