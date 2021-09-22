@@ -41,7 +41,7 @@ class Game
   end
 
   def valid_piece?(pos)
-    if @current_player.color == @board[pos].color
+    if @board[pos] != nil && @current_player.color == @board[pos].color
       return true
     else 
       return false
@@ -69,6 +69,16 @@ class Game
       puts
     end
   end
+
+  def is_occupied?(pos)
+    if @board[pos] == nil
+      return false
+    else
+      return true
+    end
+  end
+
+
 
 end
 

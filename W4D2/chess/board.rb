@@ -53,4 +53,6 @@ class Board
     self.grid[row][col] = val
   end
 
+
+
 end

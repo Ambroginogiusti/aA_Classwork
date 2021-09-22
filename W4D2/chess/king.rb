@@ -7,4 +7,6 @@ class King < Piece
     @note = color + "K"
   end
 
+  
+
 end

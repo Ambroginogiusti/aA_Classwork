@@ -6,9 +6,17 @@ class HumanPlayer < Player
     move = []
     puts "Please enter the position of piece you want to move (ex: e2)"
     input = gets.chomp
+    until valid_input?(input)
+      puts "Invalid input. Enter again."
+      input = gets.chomp
+    end
     move << translate(input)
     puts "Please enter the position of square you want to move to (ex: e4)"
     input = gets.chomp
+    until valid_input?(input)
+      puts "Invalid input. Enter again."
+      input = gets.chomp
+    end
     move << translate(input)
     move
   end
@@ -33,9 +41,28 @@ class HumanPlayer < Player
       result << 6
     when "h"
       result << 7
+    else
+      puts "invalid file"
+      return false
     end
     result << temp[1].to_i - 1
     result.reverse
+  end
+
+  def valid_file?(input)
+    valid_chars = "abcdefgh"
+    return true if valid_chars.chars.include?(input)
+    return false
+  end
+
+  def valid_rank?(input)
+    return true if input.to_i > 0 && input.to_i <= 8
+    return false
+  end
+
+  def valid_input?(input)
+    return false if input.size != 2
+    valid_file?(input[0]) && valid_rank?(input[1])
   end
 
 end
