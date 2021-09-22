@@ -11,9 +11,7 @@ class King < Piece
     moves = []
     (-1..1).each do |i|
       (-1..1).each do |j|
-        if i <= j
-          moves << [@pos[0]+i,@pos[1]+j]
-        end
+        moves << [@pos[0]+i,@pos[1]+j] unless (i == 0 && j == 0) 
       end
     end
     moves
