@@ -9,7 +9,7 @@ class Game
   def initialize(name)
     @board = Board.new
     @player_one = HumanPlayer.new(:W, name)
-    @player_two = Player.new(:B, "Computer")
+    @player_two = HumanPlayer.new(:B, "Computer")
     @game_over = false
     @current_player = @player_one
   end
@@ -19,6 +19,27 @@ class Game
       render
       current_move = @current_player.get_move
       p current_move
+      current_piece = grab_piece(current_move[0])
+      place_piece(current_move[1], current_piece)
+      change_player
+    end
+  end
+
+  def grab_piece(pos)
+    piece = @board[pos]
+    @board[pos] = nil
+    piece
+  end
+
+  def place_piece(pos, piece)
+    @board[pos] = piece
+  end
+
+  def change_player
+    if @current_player == @player_one
+      @current_player = @player_two
+    else
+      @current_player = @player_one
     end
   end
 
