@@ -18,7 +18,7 @@ class Game
     while !game_over
       render
       pos = [0,4]
-      @board[pos].possible_squares.each { |el| print translate(pos) + " " }
+      @board[pos].possible_squares.each { |el| print translate(el) + " " }
       current_move = @current_player.get_move
       puts translate(current_move[0]) + "-" + translate(current_move[1])
       until valid_piece?(current_move[0])
