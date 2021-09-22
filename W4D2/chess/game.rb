@@ -8,8 +8,8 @@ class Game
 
   def initialize(name)
     @board = Board.new
-    @player_one = HumanPlayer.new(:W, name)
-    @player_two = HumanPlayer.new(:B, "Computer")
+    @player_one = HumanPlayer.new("w", name)
+    @player_two = HumanPlayer.new("b", "Computer")
     @game_over = false
     @current_player = @player_one
   end
@@ -19,6 +19,11 @@ class Game
       render
       current_move = @current_player.get_move
       p current_move
+      until valid_piece?(current_move[0])
+        puts "Invalid move. Enter again."
+        current_move = @current_player.get_move
+        p current_move
+      end
       current_piece = grab_piece(current_move[0])
       place_piece(current_move[1], current_piece)
       change_player
@@ -33,6 +38,14 @@ class Game
 
   def place_piece(pos, piece)
     @board[pos] = piece
+  end
+
+  def valid_piece?(pos)
+    if @current_player.color == @board[pos].color
+      return true
+    else 
+      return false
+    end
   end
 
   def change_player
