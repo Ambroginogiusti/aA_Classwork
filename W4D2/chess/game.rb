@@ -15,8 +15,9 @@ class Game
   def render
     (0..7).reverse_each do |row|
       (0..7).each do |col|
-        if self.board[[row, col]] != nil
-          print " " + self.board[[row, col]].note + " "
+        pos = [row, col]
+        if self.board[pos] != nil
+          print " " + self.board[pos].note + " "
         else
           print "    "
         end
