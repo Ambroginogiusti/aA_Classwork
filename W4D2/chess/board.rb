@@ -37,6 +37,8 @@ class Board
       self.grid[1][i] = Pawn.new("w", [1, i])
       self.grid[6][i] = Pawn.new("b", [6, i])
     end
+    remove_piece([1,4])
+    remove_piece([1,5])
   end
 
   def [](pos)
@@ -49,6 +51,9 @@ class Board
     self.grid[row][col] = val
   end
 
-
+  def remove_piece(pos)
+    row, col = pos
+    self.grid[row][col] = nil
+  end
 
 end

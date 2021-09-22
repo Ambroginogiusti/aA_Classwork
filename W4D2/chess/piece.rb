@@ -73,4 +73,12 @@ class Piece
     [row+1, col-1]
   end
 
+  def remove_false_squares(arr)
+    result = []
+    arr.each do |pos|
+      result << pos unless pos.first < 0 || pos.first > 7 || pos.last < 0 || pos.last > 7
+    end
+    result
+  end
+
 end

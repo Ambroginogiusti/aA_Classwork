@@ -20,4 +20,10 @@ class King < Piece
     moves
   end
 
+  def actual_squares
+    result = []
+    temp = remove_false_squares(@moves.dup)
+    return temp
+  end
+
 end
