@@ -18,13 +18,13 @@ class Game
     while !game_over
       render
       pos = [0,4]
-      p @board[pos].possible_squares
+      @board[pos].possible_squares.each { |el| print translate(pos) + " " }
       current_move = @current_player.get_move
-      p current_move
+      puts translate(current_move[0]) + "-" + translate(current_move[1])
       until valid_piece?(current_move[0])
         puts "Invalid move. Enter again."
         current_move = @current_player.get_move
-        p current_move
+        puts translate(current_move[0]) + "-" + translate(current_move[1])
       end
       current_piece = grab_piece(current_move[0])
       place_piece(current_move[1], current_piece)
@@ -80,7 +80,30 @@ class Game
     end
   end
 
-
+  def translate(pos)
+    result = ""
+    row, col = pos
+    case col
+    when 0
+      result << "a"
+    when 1
+      result << "b"
+    when 2
+      result << "c"
+    when 3
+      result << "d"
+    when 4
+      result << "e"
+    when 5
+      result << "f"
+    when 6
+      result << "g"
+    when 7
+      result << "h"
+    end
+  result << (row + 1).to_s
+  result
+  end
 
 end
 

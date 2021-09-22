@@ -41,9 +41,6 @@ class HumanPlayer < Player
       result << 6
     when "h"
       result << 7
-    else
-      puts "invalid file"
-      return false
     end
     result << temp[1].to_i - 1
     result.reverse
