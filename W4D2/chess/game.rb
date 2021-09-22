@@ -17,6 +17,8 @@ class Game
   def play
     while !game_over
       render
+      pos = [0,4]
+      p @board[pos].possible_squares
       current_move = @current_player.get_move
       p current_move
       until valid_piece?(current_move[0])

@@ -16,10 +16,6 @@ class Board
     set_pieces
   end
 
-  def move_piece(start_pos, end_pos)
-
-  end
-
   def set_pieces
     self.grid[0][0] = Rook.new("w", [0,0])
     self.grid[0][7] = Rook.new("w", [0,7])
