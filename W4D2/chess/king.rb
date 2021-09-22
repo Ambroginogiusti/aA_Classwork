@@ -8,19 +8,20 @@ class King < Piece
   end
 
   def possible_squares
-    moves = []
-    moves << self.right
-    moves << self.left
-    moves << self.up
-    moves << self.down
-    moves << self.diag_up_right
-    moves << self.diag_down_right
-    moves << self.diag_down_left
-    moves << self.diag_up_left
-    moves
+    @moves = []
+    @moves << self.right
+    @moves << self.left
+    @moves << self.up
+    @moves << self.down
+    @moves << self.diag_up_right
+    @moves << self.diag_down_right
+    @moves << self.diag_down_left
+    @moves << self.diag_up_left
+    @moves
   end
 
   def actual_squares
+    possible_squares
     result = []
     temp = remove_false_squares(@moves.dup)
     return temp
