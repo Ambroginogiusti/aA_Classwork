@@ -9,11 +9,14 @@ class King < Piece
 
   def possible_squares
     moves = []
-    (-1..1).each do |i|
-      (-1..1).each do |j|
-        moves << [@pos[0]+i,@pos[1]+j] unless (i == 0 && j == 0) 
-      end
-    end
+    moves << self.right
+    moves << self.left
+    moves << self.up
+    moves << self.down
+    moves << self.diag_up_right
+    moves << self.diag_down_right
+    moves << self.diag_down_left
+    moves << self.diag_up_left
     moves
   end
 

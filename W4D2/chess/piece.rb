@@ -33,4 +33,44 @@ class Piece
   result
   end
 
+  def right
+    row, col = pos
+    [row, col+1]
+  end
+
+  def left
+    row, col = pos
+    [row, col-1]
+  end
+
+  def up
+    row, col = pos
+    [row+1, col]
+  end
+
+  def down
+    row, col = pos
+    [row-1, col]
+  end
+
+  def diag_up_right
+    row, col = pos
+    [row+1, col+1]
+  end
+
+  def diag_down_right
+    row, col = pos
+    [row-1, col+1]
+  end
+
+  def diag_down_left
+    row, col = pos
+    [row-1, col-1]
+  end
+
+  def diag_up_left
+    row, col = pos
+    [row+1, col-1]
+  end
+
 end
