@@ -23,8 +23,8 @@ class King < Piece
   def actual_squares
     possible_squares
     result = []
-    temp = remove_false_squares(@moves.dup)
-    return temp
+    result = remove_false_squares(@moves.dup)
+    result
   end
 
 end

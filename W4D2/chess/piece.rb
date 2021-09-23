@@ -81,4 +81,5 @@ class Piece
     result
   end
 
+
 end

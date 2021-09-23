@@ -17,12 +17,10 @@ class Game
   def play
     while !game_over
       render
-      pos = [0,4]
-      @board[pos].actual_squares.each {|el| print translate(el) + " "}
       current_move = @current_player.get_move
       current_piece = grab_piece(current_move[0])
       puts translate(current_move[0]) + "-" + translate(current_move[1])
-      until valid_piece?(current_move[0]) && valid_destination?(current_move[1], current_piece)
+      until valid_piece?(current_move[0])# && valid_destination?(current_move[1], current_piece)
         puts "Invalid move. Enter again."
         current_move = @current_player.get_move
         puts translate(current_move[0]) + "-" + translate(current_move[1])
@@ -43,7 +41,7 @@ class Game
   end
 
   def valid_piece?(pos)
-    if @board[pos] != nil && @current_player.color == @board[pos].color
+    if @board[pos] != nil
       return true
     else 
       return false
@@ -51,7 +49,7 @@ class Game
   end
 
   def valid_destination?(pos, piece)
-    if piece.possible_squares.include?(pos)
+    if piece.actual_squares.include?(pos)
       return true
     else 
       return false

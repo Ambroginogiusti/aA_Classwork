@@ -4,14 +4,19 @@ class HumanPlayer < Player
 
   def get_move
     move = []
-    puts "Please enter the position of piece you want to move (ex: e2)"
+    if self.color == "w"
+      colour = "White"
+    else
+      colour = "Black"
+    end
+    puts "Please enter the position of piece you want to move (ex: e2). #{colour} to move"
     input = gets.chomp
     until valid_input?(input)
       puts "Invalid input. Enter again."
       input = gets.chomp
     end
     move << translate(input)
-    puts "Please enter the position of square you want to move to (ex: e4)"
+    puts "Please enter the position of square you want to move to (ex: e4). #{colour} to move"
     input = gets.chomp
     until valid_input?(input)
       puts "Invalid input. Enter again."
