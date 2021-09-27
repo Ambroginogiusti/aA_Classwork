@@ -20,7 +20,12 @@ class Node
 end
 
 class LinkedList
+  attr_accessor :head_node, :tail_node
   def initialize
+    @head_node = Node.new()
+    @tail_node = Node.new()
+    @head_node.next = @tail_node
+    @tail_node.prev = @head_node
   end
 
   def [](i)
@@ -35,6 +40,7 @@ class LinkedList
   end
 
   def empty?
+    self.head_node.next != tail_node
   end
 
   def get(key)
