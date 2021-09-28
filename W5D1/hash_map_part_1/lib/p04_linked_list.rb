@@ -40,7 +40,7 @@ class LinkedList
   end
 
   def empty?
-    self.head_node.next != tail_node
+    self.head_node.next == self.tail_node
   end
 
   def get(key)
@@ -50,6 +50,11 @@ class LinkedList
   end
 
   def append(key, val)
+    node = Node.new(key, val)
+    self.tail_node.prev.next = node
+    node.prev = self.tail_node.prev
+    node.next = self.tail_node
+    self.tail.prev = node
   end
 
   def update(key, val)

@@ -33,7 +33,7 @@ describe LinkedList do
     end
   end
 
-  describe "#empty" do
+  describe "#empty?" do
     it "checks whether any nodes have been inserted" do
       expect(empty_list.empty?).to be true
       expect(list.empty?).to be false
