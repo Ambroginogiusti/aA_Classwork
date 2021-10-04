@@ -10,7 +10,7 @@ describe "Part 1:" do
       expect(average(4, 8)).to eq(6)
       expect(average(5, 10)).to eq(7.5)
     end
-  end
+  end 
 
   describe "average_array" do
     it "should accept an array of numbers as an arg" do
