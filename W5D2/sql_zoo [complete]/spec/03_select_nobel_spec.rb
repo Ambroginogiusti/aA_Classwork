@@ -1,5 +1,5 @@
 require 'rspec'
-require '03_select_nobel'
+require '03_select_nobel' 
 
 describe 'SELECT from nobel' do
   describe 'prizes_from_1950' do
