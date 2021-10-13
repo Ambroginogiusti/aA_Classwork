@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <h1>Music App</h1>
+    <% if logged_in? %>
+    <nav>
+    <p>Logged in as: <%= current_user.email %></p>
+    <form action="<%= session_url %>" method="post">
+    <input type="hidden"
+      name="_method"
+      value="delete">
+    <input type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+    <input type="submit"
+      value="Sign Out">
+    </form>
+    </nav>
+    <% end %>
     <%= yield %>
   </body>
 </html>
